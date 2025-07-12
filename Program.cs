@@ -14,7 +14,11 @@ namespace Eiger_stop_Console_app_01
 {
     internal class Program
     {
-        private static HttpClient eiger_client = new HttpClient();
+        private static HttpClient eiger_client = new HttpClient()
+        {
+            Timeout = TimeSpan.FromSeconds(5) // Set your desired timeout here
+        };
+
         static async Task Main(string[] args)
         {
             Dictionary<string, string> stop_dict = new Dictionary<string, string>();
